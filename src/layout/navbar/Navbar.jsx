@@ -1,41 +1,48 @@
 import React from 'react';
+import logo from '../body/bird_logo.png'; // Assuming this is the correct path to your logo
 
-const styles = {
-  nav: {
+const Navbar = () => {
+  const navStyle = {
     width: '100%',
     height: '14vh',
     backgroundColor: '#234465',
     color: 'white',
     position: 'fixed',
-    top: 0,
+    top: '0',
     borderBottom: '2px solid #ffa000',
-    borderTop: '2px solid #ffa000',
-  },
-  listItem: {
+    borderTop: '2px solid #ffa000'
+  };
+
+  const listItemStyle = {
     display: 'inline-block',
     height: 'auto',
     marginRight: '2%',
     cursor: 'pointer',
     padding: '0.5%',
     margin: '0.1%',
-    verticalAlign: 'top',
-    color: 'white',
-    textDecoration: 'none',
-  },
-  listItemLink: {
-    color: 'white',
-    textDecoration: 'none',
-  },
-};
+    verticalAlign: 'top'
+  };
 
-const Navbar = () => {
+  const listItemImageStyle = {
+    width: '50px',
+    height: '50px'
+  };
+
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none'
+  };
+
   return (
-    <nav style={styles.nav}>
-      {[...Array(11).keys()].map(i => (
-        <div key={i} style={styles.listItem}>
-          <a href={`#going-to-${i + 1}`} style={styles.listItemLink}>Going to {i + 1}</a>
-        </div>
-      ))}
+    <nav style={navStyle}>
+      <ul>
+        <li style={listItemStyle}><img src={logo} alt="Logo" style={listItemImageStyle} /></li>
+        {Array.from({ length: 10 }, (_, i) => (
+          <li style={{ ...listItemStyle, padding: '2%', marginTop: '1.5%', borderTop: '2px solid #ffa000' }} key={i}>
+            <a href={`#section${i + 1}`} style={linkStyle}>Going to {i + 1}</a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };
