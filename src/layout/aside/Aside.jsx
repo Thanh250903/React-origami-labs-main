@@ -29,10 +29,10 @@ const Aside = () => {
   };
 
   return (
-    <aside style={asideStyle}>
+    <aside className="Aside_Aside__ZzRWI" style={asideStyle}>
       <ul>
         {Array.from({ length: 10 }, (_, i) => (
-          <li style={listItemStyle} key={i}>
+          <li className="Link_listItem__139zd" style={listItemStyle} key={i}>
             <a href={`#section${i + 1}`} style={linkStyle}>Going to {i + 1}</a>
           </li>
         ))}
