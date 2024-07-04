@@ -1,48 +1,44 @@
 import React from 'react';
-import logo from '../body/bird_logo.png'; // Assuming this is the correct path to your logo
+import styled from 'styled-components';
 
-const Footer = () => {
-  const footerStyle = {
-    width: '100%',
-    height: '18vh',
-    backgroundColor: '#ffa000',
-    color: '#234465',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  };
+const FooterContainer = styled.footer`
+  background-color: #ff9900;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+`;
 
-  const listItemStyle = {
-    display: 'inline-block',
-    height: 'auto',
-    marginRight: '2%',
-    cursor: 'pointer',
-    padding: '0.5%',
-    margin: '0.1%',
-    verticalAlign: 'top'
-  };
+const FooterLinks = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+`;
 
-  const linkStyle = {
-    color: '#234465',
-    textAlign: 'center',
-    textDecoration: 'none',
-    paddingTop: '5%',
-    height: '60%',
-    display: 'block'
-  };
+const FooterLink = styled.li`
+  display: inline;
+`;
 
+const FooterAnchor = styled.a`
+  color: white;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+function Footer() {
   return (
-    <footer style={footerStyle}>
-      <ul>
-        {Array.from({ length: 10 }, (_, i) => (
-          <li style={listItemStyle} key={i}>
-            <a href={`#section${i + 1}`} style={linkStyle}>Going to {i + 1}</a>
-          </li>
-        ))}
-        <li style={listItemStyle}><img src={logo} alt="Logo" style={{ width: '50px', height: '50px' }} /></li>
-      </ul>
-    </footer>
+    <FooterContainer>
+      <FooterLinks>
+        <FooterLink><FooterAnchor href="/">Post</FooterAnchor></FooterLink>
+        <FooterLink><FooterAnchor href="/">Register</FooterAnchor></FooterLink>
+        <FooterLink><FooterAnchor href="/">Login</FooterAnchor></FooterLink>
+        <FooterLink><FooterAnchor href="/">Profile</FooterAnchor></FooterLink>
+      </FooterLinks>
+    </FooterContainer>
   );
-};
+}
 
 export default Footer;

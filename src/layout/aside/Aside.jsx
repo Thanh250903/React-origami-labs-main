@@ -1,44 +1,41 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Aside = () => {
-  const asideStyle = {
-    display: 'inline-block',
-    width: '15%',
-    marginRight: '1%',
-    height: '89.5vh',
-    verticalAlign: 'top'
-  };
+const AsideContainer = styled.aside`
+  background-color: #003366;
+  color: white;
+  padding: 10px;
+  height: 100%;
+`;
 
-  const listItemStyle = {
-    display: 'block',
-    width: '98%',
-    borderLeft: '2px solid #234465',
-    borderRight: '2px solid #234465',
-    marginBottom: '11%',
-    height: '5vh',
-    textAlign: 'center'
-  };
+const AsideLinks = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
 
-  const linkStyle = {
-    color: '#234465',
-    textAlign: 'center',
-    textDecoration: 'none',
-    paddingTop: '5%',
-    height: '60%',
-    display: 'block'
-  };
+const AsideLink = styled.li`
+  margin: 20px 0;
+`;
 
+const AsideAnchor = styled.a`
+  color: white;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+function Aside() {
   return (
-    <aside className="Aside_Aside__ZzRWI" style={asideStyle}>
-      <ul>
-        {Array.from({ length: 10 }, (_, i) => (
-          <li className="Link_listItem__139zd" style={listItemStyle} key={i}>
-            <a href={`#section${i + 1}`} style={linkStyle}>Going to {i + 1}</a>
-          </li>
-        ))}
-      </ul>
-    </aside>
+    <AsideContainer>
+      <AsideLinks>
+        <AsideLink><AsideAnchor href="/">Post</AsideAnchor></AsideLink>
+        <AsideLink><AsideAnchor href="/">Register</AsideAnchor></AsideLink>
+        <AsideLink><AsideAnchor href="/">Login</AsideAnchor></AsideLink>
+        <AsideLink><AsideAnchor href="/">Profile</AsideAnchor></AsideLink>
+      </AsideLinks>
+    </AsideContainer>
   );
-};
+}
 
 export default Aside;

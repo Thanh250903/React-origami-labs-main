@@ -1,34 +1,16 @@
 import React from 'react';
+import birdLogo from '../body/bird_logo.png'; // Adjust path based on your folder structure
 
-const Link = ({ href, children }) => {
+function Navigation() {
   return (
-    <li className="Link_listItem__139zd">
-      <a href={href}>{children}</a>
-    </li>
-  );
-};
-
-const Navigation = () => {
-  const navStyle = {
-    position: 'fixed',
-    top: 0,
-    width: '100%',
-    backgroundColor: '#fff',
-    zIndex: 1000,
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-  };
-
-  return (
-    <nav className="Navigation_Navigation__2CDGq" style={navStyle}>
-      <ul>
-        {Array.from({ length: 5 }, (_, i) => (
-          <Link href={`#section${i + 1}`} key={i}>
-            Going to {i + 1}
-          </Link>
-        ))}
-      </ul>
+    <nav className="Navigation">
+      <img src={birdLogo} alt="Bird Logo" style={{ width: '50px', height: '50px' }} />
+      <div className="listItem"><a href="#post">Post</a></div>
+      <div className="listItem"><a href="#register">Register</a></div>
+      <div className="listItem"><a href="#login">Login</a></div>
+      <div className="listItem"><a href="#profile">Profile</a></div>
     </nav>
   );
-};
+}
 
 export default Navigation;

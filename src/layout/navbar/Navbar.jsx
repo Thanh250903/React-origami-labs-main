@@ -1,50 +1,50 @@
 import React from 'react';
-import logo from '../body/bird_logo.png'; // Assuming this is the correct path to your logo
+import styled from 'styled-components';
+import birdLogo from '../body/bird_logo.png';
 
-const Navbar = () => {
-  const navStyle = {
-    width: '100%',
-    height: '14vh',
-    backgroundColor: '#234465',
-    color: 'white',
-    position: 'fixed',
-    top: '0',
-    borderBottom: '2px solid #ffa000',
-    borderTop: '2px solid #ffa000'
-  };
+const Nav = styled.nav`
+  background-color: #003366;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-  const listItemStyle = {
-    display: 'inline-block',
-    height: 'auto',
-    marginRight: '2%',
-    cursor: 'pointer',
-    padding: '0.5%',
-    margin: '0.1%',
-    verticalAlign: 'top'
-  };
+const Logo = styled.img`
+  width: 50px;
+`;
 
-  const listItemImageStyle = {
-    width: '50px',
-    height: '50px'
-  };
+const NavLinks = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 20px;
+`;
 
-  const linkStyle = {
-    color: 'white',
-    textDecoration: 'none'
-  };
+const NavLink = styled.li`
+  display: inline;
+`;
 
+const NavAnchor = styled.a`
+  color: white;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+function Navbar() {
   return (
-    <nav style={navStyle}>
-      <ul>
-        <li style={listItemStyle}><img src={logo} alt="Logo" style={listItemImageStyle} /></li>
-        {Array.from({ length: 10 }, (_, i) => (
-          <li style={{ ...listItemStyle, padding: '2%', marginTop: '1.5%', borderTop: '2px solid #ffa000' }} key={i}>
-            <a href={`#section${i + 1}`} style={linkStyle}>Going to {i + 1}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <Nav>
+      <Logo src={birdLogo} alt="Logo" />
+      <NavLinks>
+        <NavLink><NavAnchor href="/">Post</NavAnchor></NavLink>
+        <NavLink><NavAnchor href="/">Register</NavAnchor></NavLink>
+        <NavLink><NavAnchor href="/">Login</NavAnchor></NavLink>
+        <NavLink><NavAnchor href="/">Profile</NavAnchor></NavLink>
+      </NavLinks>
+    </Nav>
   );
-};
+}
 
 export default Navbar;
